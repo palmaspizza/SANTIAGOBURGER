@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍔SANTIAGO BURGER🍔</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.ibb.co/6cJV7NxN/santiagoburgerlogo.jpg" type="image/jpeg">
+    <meta property="og:title" content="¡SANTIAGO BURGER!">
+    <meta property="og:description" content="Las mejores hamburguesas, para tus mejores momentos.">
+    <meta property="og:image
+                    " content="https://i.ibb.co/6cJV7NxN/santiagoburgerlogo.jpg">
+
+    <meta property="og:type" content="website">
+    <style>
+        body {
+            font-family: impact;
+            margin: 20px;
+        background-color: #ff9900 !;
+        }
+        .producto {
+            display: flex;
+
+            margin-bottom: 10px;
+        }
+        .producto img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border: orangered 3px solid;
+        }
+        .producto button {
+            margin-left: 10px;
+        }
+        #carritoVentana {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+height: 100%;
+            max-width: 600px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            padding: 20px;
+            z-index: 1000;
+        }
+        #carritoVentana h3 {
+            margin-top: 0;
+        }
+        #carritoOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        #carritoBoton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        #carritoBoton img {
+            width: 40px;
+        }
+        #contador {
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            background-color: orangered;
+            color: #fff;
+            border: solid 2px #000;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-size: 16px;
+        }
+        
+        /* Nuevos estilos para el buscador avanzado */
+        #buscador-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+        
+        #buscador {
+            border: solid 2px #000 !important;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: orange !important;
+            color: white;
+            -webkit-text-stroke: #000 1px;
+        }
+        
+        #filtro-busqueda {
+            display: flex;
+            gap: 10px;
+        }
+        
+        #filtro-busqueda button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: orangered;
+            color: white;
+            cursor: pointer;
+        }
+        
+        #filtro-busqueda button.active {
+            background-color: #ff8c00;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <style>
+        /* Estilos para la pantalla mágica */
+        #portal-aventura {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Fondo etéreo */
+            z-index: 9999;
+        }
+
+        #contenido-misterioso {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        #contenido-misterioso h1 {
+            margin: 0;
+            font-size: 26px;
+            font-family: 'Comic Sans MS', cursive; /* Toque divertido */
+            color: crimson;
+        }
+
+        #contenido-misterioso button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: darkmagenta;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #contenido-misterioso button:hover {
+            background-color: rebeccapurple;
+        }
+    </style>
+    <!-- Pantalla Mágica -->
+    <div id="portal-aventura">
+        <div id="contenido-misterioso">
+            <h1>Abrir en el Navegador Sagrado (Chrome)</h1>
+            <button id="invocar-salto">Abrir</button>
+        </div>
+    </div>
+
+    
+    <script>
+window.onload = function iniciarAventura() {
+    const explorador = navigator.userAgent.toLowerCase();
+    const esChrome = explorador.includes("chrome") && !explorador.includes("edge") && !explorador.includes("opr");
+
+    if (!esChrome) {
+        const portal = document.getElementById('portal-aventura');
+        portal.style.display = 'block'; // Esto debería hacer visible el portal
+
+        const botonHechizo = document.getElementById('invocar-salto');
+        botonHechizo.onclick = function abrirEnSagrado() {
+            window.open('https://www.google.com/chrome/', '_self');
+        };
+    }
+};
+    </script>
+    <STYle>
+        h3{
+            color: orangered;
+            margin-top: -130px;
+            margin-right: 0%;
+            font-size: 120%;
+        }
+    </STYle>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding-top: 90px; /* Espacio reducido para el header */
+        }
+        
+        /* Header compacto */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #ff8c00, #ff5e00);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+        }
+    
+        /* Contenedor principal */
+        #header-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Buscador compacto */
+        #buscador-container {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        #buscador {
+            width: 100%;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Botones de categoría compactos */
+        #categorias {
+            display: flex;
+            gap: 8px;
+        }
+        
+        #categorias button {
+            border: none;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        
+        #categorias button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Efecto activo */
+        #categorias button.active {
+            background-color: white;
+            color: #ff5e00;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 8px 10px;
+            }
+            
+            #header-content {
+                flex-direction: column;
+            }
+            
+            #logo {
+                margin-bottom: 8px;
+            }
+            
+            #buscador-container {
+                margin: 8px 0;
+                width: 100%;
+            }
+            
+            #categorias {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+
+            }
+            
+            body {
+                padding-top: 140px; /* Más espacio para header apilado */
+            }
+        }
+
+
+
+
+        #header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px; /* Reducir el padding */
+}
+
+#logo {
+    max-width: 70px; /* Reducir el tamaño del logo */
+    border-radius: 50%;
+    position: sticky;
+    margin-left: -20%;
+    margin-top: -10px;
+    z-index: 223332;
+    
+}
+
+#buscador-container {
+    flex-grow: 1;
+    margin: 0 10px; /* Menor margen alrededor del buscador */
+}
+
+#categorias button {
+    padding: 1px; /* Reducir tamaño de los botones */
+    font-size: 15px;   /* Disminuir el tamaño del texto */
+    margin-right: 40px !important;
+}
+
+#carritoBoton {
+    margin-top: 0; /* Eliminar márgenes innecesarios */
+}
+@media (max-width: 600px) {
+    #header-content {
+        flex-wrap: wrap;
+    }
+
+    #categorias button {
+        font-size: 10px; /* Aún más compacto en móvil */
+    }
+}
+
+    </style>
+</head>
+
+<header>
+    <div id="header-top" style="height: 10px;">
+        <button id="carritoBoton" onclick="abrirCarrito()">
+            <span></span>
+            <img style="background-color: orangered; border: black solid 2px; width: 60px; padding-right: 5px;" src="https://previews.123rf.com/images/asmati/asmati1701/asmati170103553/70514983-carro-de-compras-con-signo-de-a%C3%B1adir-marca-icono-naranja-con-la-ruta-de-sombra-de-estilo-plano.jpg" alt="Carrito">
+            <span id="contador">0</span>
+        </button>
+    </div>
+    <style>
+        #buscador::placeholder {
+            color: white; /* Cambia "green" por el color deseado */
+        }
+        #categoriasCarrusel {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+            position: relative; /* Posiciona el carrusel */
+            bottom: 0; /* Lo coloca abajo del header */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            background: linear-gradient(135deg, #ff8c00, #ff5e00); /* Fondo opcional */
+            z-index: 10; /* Asegura que esté encima de otros elementos si es necesario */
+        }
+        .categoria {
+            display: inline-block;
+            text-align: center;
+            padding: 10px;
+            margin: 5px;
+            background-color: orangered;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 3px solid #fff;
+        }
+    </style>
+    <nav id="categorias">
+        <img id="logo" src="https://i.ibb.co/6cJV7NxN/santiagoburgerlogo.jpg" alt="Logo Santiago Burger">
+        <div id="header-bottom">
+            <div id="buscador-container">
+                <input type="text" oninput="controlarElementos()" id="buscador" placeholder="Buscar productos...">
+            </div>
+        </div>
+
+        <div id="categoriasCarrusel" style="width: 100%; margin: 0px !important;">
+
+            <div class="categoria"onclick="scrollToSection('hamburguesas')">🍔Hamburguesas</div>
+            <div class="categoria" onclick="scrollToSection('bebidas')">🍺Bebidas</div>
+            <div class="categoria" onclick="scrollToSection('menuespecial')">⭐🍔Menu SANTIAGO BURGER ESPECIAL🍔⭐</div>
+             <div class="categoria" onclick="scrollToSection('postres')">🧁Postres</div>
+            <div class="categoria" onclick="scrollToSection('perroscalientes')">🌭Perros Calientes</div>
+            <div class="categoria" onclick="scrollToSection('arepones')">🥙Arepones</div>
+            <div class="categoria" onclick="scrollToSection('patacones')">🌯Patacones</div>
+        </div>
+    </nav>
+    <script>
+        function controlarElementos() {
+            const input = document.getElementById('buscador');
+            const elementos = document.querySelectorAll('.elementor');
+            
+            if (input.value.trim() === '') {
+                // Si el valor está vacío, mostrar todos los elementos
+                elementos.forEach(elemento => {
+                    elemento.style.display = 'block';
+                });
+            } else {
+                // Si hay un valor, ocultar todos los elementos
+                elementos.forEach(elemento => {
+                    elemento.style.display = 'none';
+                });
+            }
+        }
+    </script>
+</header>
+
+    <main>
+        <!-- Secciones de contenido -->
+      
+       
+        </section>
+        
+
+        
+
+            <h2>Combos</h2>
+            <!-- Contenido -->
+        </section>
+    </main>
+
+    <script>
+        // Scroll suave a secciones
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Actualizar botón activo
+            document.querySelectorAll('#categorias button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Cambiar botón activo al hacer scroll
+        window.addEventListener('scroll', function() {
+            const secciones = document.querySelectorAll('.seccion');
+            let current = '';
+            
+            secciones.forEach(seccion => {
+                const seccionTop = seccion.offsetTop;
+                if (window.scrollY >= seccionTop - 100) {
+                    current = seccion.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('#categorias button').forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('onclick').includes(current)) {
+                    button.classList.add('active');
+                }
+            });
+        });
+    </script> <section id="hamburguesas" class="seccion"></section>
+    <main><br><br><br>
+        <br><br><br>
+     <center>
+        
+        <h1 style="color: #fff;">🍔Santiago <span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: orange;">Burger</span>🍔</h1>
+       
+     </center>  <blockquote class="tiktok-embed elementor" cite="https://www.tiktok.com/@santiagoburgercl/video/7491480523492035895" data-video-id="7491480523492035895" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@santiagoburgercl" href="https://www.tiktok.com/@santiagoburgercl?refer=embed">@santiagoburgercl</a> <p>Activos ki gente aqui variedad de sabore ###</p> <a target="_blank" title="♬ sonido original - Santiago Burger 🍔" href="https://www.tiktok.com/music/sonido-original-7491480523704437510?refer=embed">♬ sonido original - Santiago Burger 🍔</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+    </section>
+
+    <script>
+        // Función para reproducir el video/audio
+        function reproducirAudio() {
+            var video = document.getElementById('miVideo');
+            if (video) {
+                video.play();
+            }
+        }
+    </script>
+        <div id="productos">
+            <style>
+                /* Estilos generales */
+                body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  background-color: #f8f9fa;
+                }
+            
+                header, footer {
+                  width: 100%;
+                  padding: 15px;
+                  text-align: center;
+                  background-color: #007bff;
+                  color: white;
+                }
+            
+                .contenedor {
+                  max-width: 1200px;
+                  padding: 15px;
+                  margin: 20px auto;
+                }
+            
+                .grid {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  gap: 15px;
+                }
+            
+                .item {
+                  background-color: #fff;
+                  padding: 20px;
+                  text-align: center;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+            
+                /* Diseño responsivo */
+                @media (max-width: 768px) {
+                  header, footer {
+                    font-size: 14px;
+                  }
+            
+                  .item {
+                    font-size: 16px;
+                  }
+                }
+            
+                @media (max-width: 480px) {
+                  header, footer {
+                    padding: 10px;
+                  }
+                }
+              </style>
+                  
+<h1 class="elementor" style="margin-top: 150px; color: white;">⭐🍔Menu SANTIAGO BURGER ESPECIAL🍔⭐</h1>
+<section id="menuespecial" class="seccion"></section>
+
+<br><br>
+
+
+
+<style>
+    body {
+        font-family: impact;
+        padding: 50px;
+    }
+
+    .open {
+        color: green;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .closed {
+        color: red;
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+
+<div id="status"></div>
+
+<script>
+   
+
+
+
+// Función para verificar el día y mostrar/ocultar la etiqueta
+function verificarYOcultar() {
+    // Obtén la fecha y hora actual en la zona horaria de Santiago de Chile
+    const fechaActual = new Date().toLocaleString("en-US", { timeZone: "America/Santiago" });
+    const fecha = new Date(fechaActual);
+
+    // Obtén el número del día de la semana (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
+    const diaSemana = fecha.getDay();
+
+    // Obtén el elemento con id "body"
+    const bodyElement = document.getElementById("body");
+
+    if (bodyElement) {
+        // Mostrar el body de lunes a jueves
+        if (diaSemana >= 1 && diaSemana <= 4) {
+            bodyElement.style.display = "block"; // Mostrar el body
+        } else {
+            // Ocultar el body los días restantes (viernes a domingo)
+            bodyElement.style.display = "none";
+        }
+    }
+}
+
+// Ejecuta la función al cargar la página
+window.onload = verificarYOcultar;
+
+// Ejecuta la función al cargar la página
+verificarYOcultar();
+
+</script>
+<center>
+    
+</center>
+
+
+
+
+
+
+<div class="producto" style="height: 300px;" data-nombre="Burger la Mollejua" class="imgBB" data-ingredientes="carne pollo tocino chuleta lechuga papas queso gauda queso cheddar salsas">
+    <img src="https://i.postimg.cc/xdSbsyxw/Imagen-de-Whats-App-2025-04-30-a-las-14-10-44-117ab9b1.jpg" alt="FOTO">
+    <span class="price" >$13.000</span>
+    <h3>Burger la Mollejua</h3>
+   
+    <p>4 Proteína <span style="font-family: impact; margin-top: -130px; color: red; text-decoration: underline #000;">Carne, Pollo, Chuleta, Lomito </span> Huevo, Tocino, Queso gauda, Queso Cheddar, Jamón, Papas hilo, Queso de mano, Lechuga, Salsas</p>
+ <button onclick="openModal();agregarAlCarrito('Burger la Mollejua', 13000, '%0A%0A1 Burger la Mollejua')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+
+<div class="producto" data-nombre="Burger Tradicional" class="imgBB" data-ingredientes="carne pollo tocino chuleta lechuga papas queso gauda queso cheddar salsas">
+    <img src="https://i.ibb.co/Vpj006Ks/tradicional.jpg" alt="FOTO">
+    <span class="price">$7.000</span><br>  <h3 style="margin-left: 50px;">Burger Tradicional</h3>
+
+    <p>Carne o Pollo, Huevo, Tocino, Queso gauda, Queso cheddar, Jamón, Papas hilo, Queso de mano, Lechuga, Tomate, Salsas</p>
+  <button onclick="openModal();agregarAlCarrito('Burger Tradicional', 7000, '%0A%0A1 Burger Tradicional')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+
+
+<div class="producto" data-nombre="Burger la Golosa" class="imgBB" data-ingredientes="carne pollo tocino chuleta lechuga papas queso gauda queso cheddar salsas">
+    <img src="https://i.postimg.cc/mgHLMcD6/Imagen-de-Whats-App-2025-04-30-a-las-14-07-46-23dd573f.jpg" alt="FOTO">
+    <h3>Burger la Golosa</h3>
+    <span class="price" >$9.000</span>
+    <p>2 Proteína <span style="margin-top: 30px; color: red; text-decoration: underline #000; font-family: impact;">Carne, Pollo o Chuleta</span> Huevo, Tocino, Queso gauda, Queso Cheddar, Jamón, Tomate, Lechuga</p>
+  <button onclick="openPopmp();openModal();agregarAlCarrito('Burger la Golosa', 9000, '%0A%0A1 Burger la Golosa')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div><br>
+<input type="text" hidden id="pedidoinput">
+
+                       <!-- Video local -->
+
+            <h1 class="elementor" style="color: white; margin-top: 10px;">🍔Hamburguesas</h1><br>
+             <style>
+
+                p{
+                    position: absolute !important;
+                    margin-left: 150px;
+                    margin-right: 66px;
+                    margin-top: 60px;
+                    font-size: 100%;
+                }
+
+                .imgBB{
+                    position: absolute;
+                }
+             </style>
+  <img class="elementor" src="https://www.shutterstock.com/image-vector/delicious-homemade-burger-chili-bbq-600nw-1804330342.jpg" style="width: 100%; height: auto;" alt="">
+  <!-- Productos con atributo class="imgBB" data-ingredientes -->
+ 
+       <div class="producto" data-nombre="2 TUMBA RANCHO" class="imgBB" data-ingredientes="Lechuga o Repollo Salsas la proteína, |Pollo, Lomito, o Mechada| o Picada, Queso de mano, Queso del año">
+           <img src="https://i.ibb.co/GQYDF5Qj/tumbarancho.jpg" alt="FOTO">
+           <h3 style="margin-top: -130px;"><span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; border: 2px solid #000; background-color: orangered; font-size: 150%; color: #fff;">PROMO</span> 2 TUMBA RANCHO</h3>
+           <br> <span  class="price">$8.000</span>
+       <br>
+           <p><span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Lechuga o Repollo</span>  Salsas la proteína, <span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Pollo, Lomito, Mechada o Picada</span>, Queso de mano, Queso del año</p>
+
+           <button onclick="openPopop();openPopep();openModal();agregarAlCarrito('2 TUMBA RANCHO', 8000, '%0A%0A2 TUMBA RANCHO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+       </div>     
+           
+            <div class="producto" data-nombre="TUMBA RANCHO" class="imgBB" data-ingredientes="Lechuga o Repollo Salsas la proteína, |Pollo, Lomito, o Mechada| o Picada, Queso de mano, Queso del año">
+                <img src="https://i.ibb.co/GQYDF5Qj/tumbarancho.jpg" alt="FOTO">
+                <h3 style="margin-top: -130px;">TUMBA RANCHO</h3>
+                <br> <span  class="price">$5.000</span>
+            <br>
+                <p><span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Lechuga o Repollo</span>  Salsas la proteína, <span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Pollo, Lomito, Mechada o Picada</span>, Queso de mano, Queso del año</p>
+
+                <button onclick="openPopop();openPopep();openModal();agregarAlCarrito('TUMBA RANCHO', 5000, '%0A%0A1 TUMBA RANCHO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>     
+            
+           <style>
+            .price {
+                margin-bottom: 70px !important;
+                font-family: impact;
+                margin-left: -105px !important;
+                position: relative;
+                background-color: orangered;
+                border: 2px #000 solid;
+                height: 30px;
+                 font-size: 120%;
+                  margin-top: 180px;
+                   padding-bottom: 30px; 
+                   margin-left: 25px !important;
+                 position: absolute;
+                 color: #fff;
+                 border-radius: 5px;
+                 margin-top: -100px !important;
+                 padding: 5px;
+            }
+            
+           </style>
+            <div class="producto" data-nombre="BURGER 4 PROTEÍNA" class="imgBB" data-ingredientes="carne pollo tocino chuleta lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/zhBv033f/4-PROTEINA.jpg" alt="FOTO">
+                
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER 4 PROTEÍNA</h3>
+                <span class="price" >$7.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+           
+                <button onclick="openModal();agregarAlCarrito('BURGER 4 PROTEÍNA', 7000, '%0A%0A1 BURGER 4 PROTEÍNA')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+           
+            <div class="producto" data-nombre="BURGER POLLO + CHULETA" class="imgBB" data-ingredientes="pollo chuleta lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/GQ9wGNgk/pollochuletaburger.jpg" alt="FOTO">
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER POLLO + CHULETA</h3>
+                <span class="price" >$5.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+               <br> 
+                <button onclick="openModal();agregarAlCarrito('BURGER POLLO + CHULETA', 5000, '%0A%0A1 BURGER POLLO + CHULETA')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+            <div class="producto" data-nombre="BURGER CARNE + CHULETA" class="imgBB" data-ingredientes="carne chuleta lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/hFVgdsw7/Imagen-de-Whats-App-2025-04-02-a-las-19-00-20-4546f6d5.jpg" alt="FOTO">
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER CARNE + CHULETA</h3>
+                <span class="price" >$5.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+                <button onclick="openModal();agregarAlCarrito('BURGER CARNE + CHULETA', 5000, '%0A%0A1 BURGER CARNE + CHULETA')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+    
+        
+
+
+            <div class="producto" data-nombre="BURGER CARNE + POLLO" class="imgBB" data-ingredientes="carne pollo lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/rKKBrzSd/carnepolloburger.jpg" alt="FOTO">
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER CARNE + POLLO</h3>
+                <span class="price" >$4.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+                   <button onclick="openModal();agregarAlCarrito('BURGER CARNE + POLLO', 4000, '%0A%0A1 BURGER CARNE + POLLO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+            
+            <div class="producto" data-nombre="BURGER CARNE + TOCINO" class="imgBB" data-ingredientes="carne tocino lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/KxqcYSdL/carnetocinoburger.jpg" alt="FOTO">
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER CARNE + TOCINO</h3>
+                <span class="price" >$4.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+                 <button onclick="openModal();agregarAlCarrito('BURGER CARNE + TOCINO', 4000, '%0A%0A1 BURGER CARNE + TOCINO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+            <div class="producto" data-nombre="BURGER POLLO + TOCINO" class="imgBB" data-ingredientes="pollo tocino lechuga papas queso gauda queso cheddar salsas">
+                <img src="https://i.ibb.co/fVHcyv7K/pollotocinoburger.jpg" alt="FOTO">
+                <h3 style="font-family: impact; margin-top: -130px;">BURGER POLLO + TOCINO</h3>
+                <span class="price" >$5.000</span>
+                <p>Lechuga, Tomate, Papas hilo, Queso gauda, Queso cheddar, Salsas de la Casa</p>
+                 <button onclick="openModal();agregarAlCarrito('BURGER POLLO + TOCINO', 4000, '%0A%0A1 BURGER POLLO + TOCINO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+            </div>
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+<br><br><br><br>
+
+          <center>
+            <h1 class="elementor"  style="color: white; margin-top: 100px;">🌭Perros calientes</h1>
+          </center>
+            <section id="perroscalientes" class="seccion">
+            
+            </section>
+<img class="elementor" src="https://i.ibb.co/0ps687B6/imagen-2025-04-11-181713459.png" style="width: 100%; height: auto;" alt="">
+
+
+
+<div class="producto" data-nombre="SALCHIPAPAS ESPECIAL" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/VWth3v2Y/imagen-2025-04-09-214709340.png" alt="FOTO">
+    <h3 style="margin-top: -130px;">SALCHIPAPAS ESPECIAL</h3>
+    <span class="price" >$8.000</span>
+    <br>
+    <p style="margin-top: 80px;">Papas francesas, Vienesas, Queso gauda, Lechuga, Coronado de pollo, Carne, Tocino, Chuleta, Chorizo, Salsas</p>
+  <button onclick="openModal();agregarAlCarrito('SALCHIPAPAS ESPECIAL', 8000, '%0A%0A1 SALCHIPAPAS ESPECIAL')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="PEPI PERRO" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/chnR1HHX/pepiperros.jpg" alt="FOTO">
+    <h3 style="margin-top: -130px;">PEPI PERRO</h3>
+    <span class="price">$6.000</span>
+    <p>Lomito, Pollo, Chuleta, Chorizo, Tocino, Palta, Repollo, Tomate, Queso</p>
+   <button onclick="openModal();agregarAlCarrito('PEPI PERRO', 6000, '%0A%0A1 PEPI PERRO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="SALCHIPAPAS" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/j1V609z/salchipapa4500.jpg" alt="FOTO">
+    <h3>SALCHIPAPAS</h3>
+    <span class="price" >$4.500</span>
+    <p>Papas francesas, Salchichas, Queso gauda, Lechuga, Salsas</p>
+ <button onclick="openModal();agregarAlCarrito('SALCHIPAPAS', 4500, '%0A%0A1 SALCHIPAPAS')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="PERRO ESPECIAL" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/xSjdYbgH/perroespecial.jpg" alt="FOTO">
+    <h3>PERRO ESPECIAL</h3>
+    <span class="price" >$3.500</span>
+    <p>Pollo, Tocino, Chuleta, Chorizo, Papas hilo, Queso rallado, Lechuga, Salsas</p>
+    <button onclick="openModal();agregarAlCarrito('PERRO ESPECIAL', 3500, '%0A%0A1 PERRO ESPECIAL')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="CHORIPAN" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.postimg.cc/d0QJf56g/Imagen-de-Whats-App-2025-04-30-a-las-14-08-29-b0d48c96.jpg" alt="FOTO">
+    <h3>CHORIPAN</h3>
+    <span class="price">$3.000</span>
+        <p>Chorizo, Queso gauda, Papas hilo, Lechuga, Salsas</p>
+  <button onclick="openModal();agregarAlCarrito('CHORIPAN', 3000, '%0A%0A1 CHORIPAN')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="PERRO TOCINO" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/DfwjnFgP/perrotocino.jpg" alt="FOTO">
+    <h3>PERRO TOCINO</h3>
+    <span class="price" >$2.500</span>
+    <p>Vienesa, Papas hilo, Queso gauda, Repollo, Salsas</p>
+   <button onclick="openModal();agregarAlCarrito('PERRO TOCINO', 2500, '%0A%0A1 PERRO TOCINO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+<div class="producto" data-nombre="PERRO MECHADA" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="URL_IMAGEN" alt="FOTO">
+    <h3>PERRO MECHADA</h3>
+    <span class="price" >$3.500</span>
+    <p>Vienesa, Papas hilo, Queso gauda, Repollo, Salsas, Carne mechada</p>
+    <br> 
+    <button onclick="openModal();agregarAlCarrito('PERRO MECHADA', 3500, '%0A%0A1 PERRO SENCILLO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+  </div>
+<div class="producto" data-nombre="PERRO SENCILLO" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="URL_IMAGEN" alt="FOTO">
+    <h3>PERRO SENCILLO</h3>
+    <span class="price" >$2.000</span>
+    <p>Vienesa, Papas hilo, Queso gauda, Repollo, Salsas</p>
+    <br> 
+    <button onclick="openModal();agregarAlCarrito('PERRO SENCILLO', 2000, '%0A%0A1 PERRO SENCILLO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="PAN CON HUEVO" class="imgBB" data-ingredientes="Vienesa, Papas hilo, Queso gauda, Repollo, Salsas">
+    <img src="https://i.ibb.co/B2B3c5XH/panconhuevo.jpg" alt="FOTO">
+    <h3>PAN CON HUEVO</h3>
+    <span class="price" >$2.000</span>
+    <p>Huevo, Papas hilo, Queso gauda, Repollo, Salsas</p>
+ <button onclick="openModal();agregarAlCarrito('PAN CON HUEVO', 2000, '%0A%0A1 PAN CON HUEVO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+    <h1 class="elementor" style="color: #fff; margin-top: 100px;">🍺Bebidas</h1>
+<section id="bebidas" class="seccion">
+            
+</section>
+<img class="elementor" src="https://abartacocacola.com/wp-content/uploads/contact-banner.jpg" style="width: 100%; height: auto;" alt="">
+<div class="producto" data-nombre="Sprite en lata" class="imgBB" data-ingredientes="Sprite en lata 350ml">
+    <img src="https://i.ibb.co/KxPNXmyQ/spritelata.jpg" alt="FOTO">
+    <h3 style="font-family: impact; margin-top: -130px;">Sprite en lata</h3>
+    <span class="price" >$1.500</span>
+    <p>Sprite en lata 350ml</p>
+   <button onclick="agregarAlCarrito('Sprite en lata', 1500, '%0A%0A1 Sprite en lata')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+<div class="producto" data-nombre="Cocacola en lata"data-ingredientes=">Cocacola en lata">
+    <img src="https://i.ibb.co/TqTT7sN6/cocacolalata.jpg" alt="FOTO">
+    <h3 style="font-family: impact; margin-top: -130px;">Cocacola en lata</h3>
+    <p>Cocacola en lata 350ml</p>
+    <span class="price" >$1.500</span>
+     <button onclick="agregarAlCarrito('Cocacola en lata', 1500, '%0A%0A1 Cocacola en lata')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="Fanta en lata"data-ingredientes="Fanta en lata 350ml">
+    <img src="https://i.ibb.co/nN7b9dQ0/fantalata.jpg" alt="FOTO">
+    <h3 style="font-family: impact; margin-top: -130px;">Fanta en lata</h3>
+    <p>Fanta en lata 350ml</p>
+    <span class="price" >$1.500</span>   <button onclick="agregarAlCarrito('Fanta en lata', 1500, '%0A%0A1 Fanta en lata')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+<div class="producto" data-nombre="Malta en lata" class="imgBB" data-ingredientes="Malta en lata 355ml">
+    <img src="https://i.ibb.co/chfyL5Gd/maltalata.jpg" alt="FOTO">
+    <h3 style="font-family: impact; margin-top: -130px;">Malta en lata</h3>
+    <p>Malta en lata 355ml</p>
+    <span class="price" >$2.000</span><button onclick="agregarAlCarrito('Malta en lata', 2000, '%0A%0A1 Malta en lata')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+
+
+<div class="producto" data-nombre="Papelon con limón" class="imgBB" data-ingredientes="Papelon con limón 500ml" >
+    <img src="https://i.ibb.co/K1TV3My/papelonconlimon.jpg" alt="FOTO">
+    <h3 style="font-family: impact; margin-top: -130px;">Papelon con limón</h3>
+    <span class="price" >$2.000</span>
+    <p>Papelon con limón 500ml</p>
+   <button onclick="agregarAlCarrito('Papelon con limón', 2000, '%0A%0A1 Papelon con limón')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div>
+<br><br><input type="text" readonly style="border: 0px; background: #ffffff00; color: #ffffff00;">
+
+
+<center>
+    <h1 class="elementor"  style="color: white; margin-top: 100px;">🌯Patacones</h1>
+  </center>
+    <section id="patacones" class="seccion">
+    
+    </section>
+<img class="elementor" src="https://i.ibb.co/bMHD5w67/imagen-2025-04-11-182448886.png" style="width: 100%; height: auto;" alt="">
+
+<div class="producto" data-nombre="PATACON MIXTO" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/3YTDb2QG/patacones.jpg" alt="FOTO">
+    <h3>PATACON MIXTO</h3>
+    <span class="price">$13.000</span>
+    <p>Plátano, <span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Lechuga o Repollo</span> Huevo, Jamón, Queso de mano, Queso gauda, Tocineta, Queso de año y la proteína. <span style=" text-decoration: underline black; color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Mechada y Pollo</span> </p>
+   <button onclick="openModal();openPopep();agregarAlCarrito('PATACON MIXTO', 13000, '%0A%0A1 PATACON MIXTO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+
+<div class="producto" data-nombre="PATACON TRIFACICO" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/3YTDb2QG/patacones.jpg" alt="FOTO">
+    <h3>PATACON TRIFACICO</h3>
+    <span class="price" >$15.000</span>
+    <p><span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Mechada, Carne, Pollo</span> Chorizo, Chuleta, Tocino</p>
+    <button onclick="openModal();agregarAlCarrito('PATACON TRIFACICO', 15000, '%0A%0A1 PATACON TRIFACICO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+<div class="producto" data-nombre="PATACON" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.ibb.co/3YTDb2QG/patacones.jpg" alt="FOTO">
+    <h3>PATACON</h3>
+    <span class="price">$10.000</span>
+    <p>Plátano, <span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Lechuga o Repollo</span> Huevo, Jamón, Queso de mano, Queso gauda, Tocineta, Queso de año y la proteína. <span style=" text-decoration: underline black; color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Mechada o Pollo</span> </p>
+<button onclick="openModal();openPoprxp();openPopep();agregarAlCarrito('PATACON', 10000, '%0A%0A1 PATACON')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+<br><input type="text" readonly style="border: 0px; background: #ffffff00; color: #ffffff00;">
+
+
+<center>
+    <h1 class="elementor"  style="color: white; margin-top: 100px;">🥙Arepones</h1>
+  </center>
+    <section id="arepones" class="seccion">
+    
+    </section>
+    
+<img class="elementor" src="https://i.postimg.cc/NjdyQqpx/Imagen-de-Whats-App-2025-04-30-a-las-13-13-23-43ff19f1.jpg" style="width: 100%; height: auto;" alt="">
+
+
+<div class="producto" data-nombre="AREPÓN" class="imgBB" data-ingredientes="lechuga repollo salsas pollo lomito mechada picada queso">
+    <img src="https://i.postimg.cc/NMbJDpVp/Imagen-de-Whats-App-2025-04-30-a-las-13-13-23-514bb7c0.jpg" alt="FOTO">
+    <h3>AREPÓN</h3>
+    <span class="price">$10.000</span>
+    <p>Plátano, <span style="color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-decoration: underline black;">Lechuga o Repollo</span> Huevo, Jamón, Queso de mano, Queso gauda, Tocineta, Queso de año y la proteína. <span style=" text-decoration: underline black; color: red; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Mechada y Pollo</span> </p>
+   <button onclick="openModal();openPopep();agregarAlCarrito('AREPÓN', 10000, '%0A%0A1 AREPÓN')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+  </div> 
+<input type="text" readonly style="border: 0px; background: #ffffff00; color: #ffffff00;">
+<center>
+    <h1 class="elementor"  style="color: white; margin-top: 100px;">🧁Postres</h1>
+  </center>
+<img class="elementor" src="https://chocolatedeeva.mx/images/2024/03/02/banner-postres-merida.png" style="width: 100%; height: auto;" alt="">
+<section id="postres" class="seccion">
+            
+</section>
+
+<div class="producto" data-nombre="TORTA DE CHOCOLATE" class="imgBB" data-ingredientes="Postre Torta de chocolate">
+    <img src="https://i.ibb.co/d44BhFzz/tortadechocolate.jpg" alt="FOTO">
+    <h3>TORTA DE CHOCOLATE</h3>
+    <p>Postre Torta de chocolate</p>
+    <span class="price" >$4.000</span>
+     <button onclick="openModal();agregarAlCarrito('TORTA DE CHOCOLATE', 4000, '%0A%0A1 TORTA DE CHOCOLATE')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+
+<div class="producto" data-nombre="Quesillo" class="imgBB" data-ingredientes="Postre Quesillo">
+    <img src="https://i.ibb.co/fdMrJ7pD/quesillo.jpg" alt="FOTO">
+    <h3>QUESILLO</h3>
+    <span class="price" >$3.000</span>
+    <p>Postre Quesillo</p>
+    <br>  <button onclick="openModal();agregarAlCarrito('QUESILLO', 3000, '%0A%0A1 QUESILLO')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+
+<div class="producto" data-nombre="Beso de angel"  class="imgBB" data-ingredientes="Postre Beso de angel">
+    <img src="https://i.ibb.co/k6SpvtmH/besodeangel.jpg" alt="FOTO">
+    <h3>BESO DE ANGEL</h3>
+    <span class="price" >$2.000</span>
+    <p>Postre Beso de angel</p>
+   <button onclick="openModal();agregarAlCarrito('BESO DE ANGEL', 2000, '%0A%0A1 BESO DE ANGEL')" style="height: 30px; font-size: 120%; margin-top: 180px; padding-bottom: 30px; margin-left: 25px !important; position: absolute;">Agregar</button>
+</div> 
+
+
+
+
+
+   <style>
+                span{
+                    color: green;
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                }
+                /* blood */
+                /* Estilo para la ventana emergente */
+              
+                #poprxp {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #popup {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #popap {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #popop {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+
+                #popmp {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #popep {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #popip {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 20px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    z-index: 1000;
+                }
+                #overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+
+                 #overlayrx {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+
+
+                #overlayt {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+
+                #overlaym {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+                #overlayx {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+                #overlayz {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 500;
+                }
+                button {
+                    margin: 5px;
+                }
+            </style>
+      
+      <div id="overlay" hidden></div>
+      <div hidden id="popup">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePopup();selectOption('DE POLLO')">DE POLLO</button>
+          <button onclick="closePopup();selectOption('DE PICADA')">DE PICADA</button>
+          <button onclick="closePopup();selectOption('DE MECHADA')">DE MECHADA</button>
+      </div>
+
+
+      <div id="overlayrx" hidden></div>
+      <div hidden id="poprxp">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePoprxp();selectOption('DE POLLO')">DE POLLO</button>
+          <button onclick="closePoprxp();selectOption('DE MECHADA')">DE MECHADA</button>
+      </div>
+
+
+      <div id="overlayz" hidden></div>
+      <div hidden id="popip">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePopip();selectOption('DE POLLO')">DE POLLO</button>
+          <button onclick="closePopip();selectOption('DE LOMITO')">DE LOMITO</button>
+          <button onclick="closePopip();selectOption('DE MECHADA')">DE MECHADA</button>
+      </div>
+
+
+      <div id="overlaym" hidden></div>
+      <div hidden id="popap">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePopap();selectOption('DE POLLO')">DE POLLO</button>
+          <button onclick="closePopap();selectOption('DE LOMITO')">DE LOMITO</button>
+          <button onclick="closePopap();selectOption('DE CARNE')">DE CARNE</button>
+          <button onclick="closePopap();selectOption('DE CHULETA')">DE CHULETA</button>
+      </div>
+
+      <div id="overlayl" hidden></div>
+      <div hidden id="popop">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePopop();selectOption('DE POLLO')">DE POLLO</button>
+          <button onclick="closePopop();selectOption('DE LOMITO')">DE LOMITO</button>
+          <button onclick="closePopop();selectOption('DE MECHADA')">DE MECHADA</button>
+          <button onclick="closePopop();selectOption('DE PICADA')">DE PICADA</button>
+      </div>
+      <script>
+        let selectedOptions = []; // Array para almacenar opciones seleccionadas
+
+        function openPopmp() {
+            // Mostrar overlay y ventana emergente
+            document.getElementById('overlayt').style.display = 'flex';
+            document.getElementById('popmp').style.display = 'block';
+        }
+
+        function closePopmp() {
+            // Ocultar overlay y ventana emergente
+            document.getElementById('overlayt').style.display = 'none';
+            document.getElementById('popmp').style.display = 'none';
+
+            // Agregar las opciones seleccionadas al input
+            if (selectedOptions.length > 0) {
+                document.getElementById('miInput').value = selectedOptions.join(', ');
+            }
+        }
+
+        function selectOption(option) {
+            // Verificar que no haya más de dos opciones seleccionadas
+            if (selectedOptions.includes(option)) {
+                alert('Esta opción ya está seleccionada.');
+            } else if (selectedOptions.length < 2) {
+                selectedOptions.push(option);
+            } else {
+                alert('Solo puedes seleccionar dos opciones.');
+            }
+        }
+    </script>
+
+<div id="overlayt" hidden></div>
+<div id="popmp" hidden>
+    <h4 style="color: #fff;">Selecciona dos opciones</h4>
+    <!-- OPCIONES: -->
+    <button id="btnCarne" onclick="toggleSelection('DE CARNE%0A', this)">DE CARNE</button>
+    <button id="btnPollo" onclick="toggleSelection('DE POLLO%0A', this)">DE POLLO</button>
+    <button id="btnChuleta" onclick="toggleSelection('DE CHULETA%0A', this)">DE CHULETA</button>
+
+    <br><br>
+    <button style="background-color: green; color: white;" onclick="confirmSelection();closePopmp();">Listo</button>
+</div>
+
+<script>
+    let opcionesSeleccionadas = [];
+
+    function toggleSelection(option, button) {
+        if (opcionesSeleccionadas.includes(option)) {
+            // Deselect the option
+            opcionesSeleccionadas = opcionesSeleccionadas.filter(item => item !== option);
+            button.style.backgroundColor = ''; // Reset button color
+        } else if (opcionesSeleccionadas.length < 2) {
+            // Select the option if less than 2 options are already selected
+            opcionesSeleccionadas.push(option);
+            button.style.backgroundColor = 'lightblue'; // Highlight button
+        } else {
+            alert("Solo puedes seleccionar 2 opciones");
+        }
+    }
+
+
+    function confirmSelection() {
+        if (opcionesSeleccionadas.length === 2) {
+            // Sumar las opciones seleccionadas al input
+            const pedidoinput = document.getElementById('pedidoinput');
+            const nuevasOpciones = opcionesSeleccionadas.join(', ');
+            pedidoinput.value = pedidoinput.value 
+                ? pedidoinput.value + ', ' + nuevasOpciones 
+                : nuevasOpciones;
+            alert(`Opciones agregadas: ${nuevasOpciones}`);
+            // Resetear las opciones seleccionadas para permitir nuevas selecciones
+            opcionesSeleccionadas = [];
+            // Resetear colores de los botones
+            document.querySelectorAll('button').forEach(btn => btn.style.backgroundColor = '');
+        } else {
+            alert("Por favor selecciona exactamente 2 opciones antes de continuar.");
+        }
+    }
+</script>
+      
+      <div id="overlayx" hidden ></div>
+      <div hidden id="popep">
+        <h4 style="color: #fff;">Selecciona una opción</h4>
+      <!-- OPCIONES: -->
+          <button onclick="closePopep();selectOption('DE LECHUGA')">LECHUGA</button>
+          <button onclick="closePopep();selectOption('DE REPOLLO')">REPOLLO</button>
+
+      </div>
+      <script>
+          // Función para abrir el popup
+          function openPopup() {
+              document.getElementById('popup').hidden = false;
+              document.getElementById('overlay').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopup() {
+              document.getElementById('popup').hidden = true;
+              document.getElementById('overlay').hidden = true;
+          }
+
+
+          function openPoprxp() {
+              document.getElementById('poprxp').hidden = false;
+              document.getElementById('overlayrx').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePoprxp() {
+              document.getElementById('poprxp').hidden = true;
+              document.getElementById('overlayrx').hidden = true;
+          }
+
+
+
+          function openPopep() {
+              document.getElementById('popep').hidden = false;
+              document.getElementById('overlayx').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopep() {
+              document.getElementById('popep').hidden = true;
+              document.getElementById('overlayx').hidden = true;
+          }
+
+
+
+          function openPopip() {
+              document.getElementById('popip').hidden = false;
+              document.getElementById('overlayz').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopip() {
+              document.getElementById('popip').hidden = true;
+              document.getElementById('overlayz').hidden = true;
+          }
+
+          function openPopmp() {
+              document.getElementById('popmp').hidden = false;
+              document.getElementById('overlayt').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopmp() {
+              document.getElementById('popmp').hidden = true;
+              document.getElementById('overlayt').hidden = true;
+          }
+
+          
+          function openPopap() {
+              document.getElementById('popap').hidden = false;
+              document.getElementById('overlaym').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopap() {
+              document.getElementById('popap').hidden = true;
+              document.getElementById('overlaym').hidden = true;
+          }
+      
+
+
+            
+          function openPopop() {
+              document.getElementById('popop').hidden = false;
+              document.getElementById('overlayl').hidden = false;
+          }
+      
+          // Función para cerrar el popup
+          function closePopop() {
+              document.getElementById('popop').hidden = true;
+              document.getElementById('overlayl').hidden = true;
+          }
+      
+      
+          // Función para seleccionar la opción
+          function selectOption(option) {
+              const input = document.getElementById('pedidoinput');
+              input.value += (input.value ? ', ' : '') + option;
+              closePopup();
+          }
+      </script>
+      
+            </div>
+        <style>
+            /* Estilo para el contenedor del popup */
+            #popup {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                background-color: #000;
+                border: 2px solid #ffa500;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+                width: 100%;
+height: 100%;
+                margin: 20px auto;
+            }
+
+            /* Estilo general para los botones */
+            #popup button {
+                background-color: #ffa500;
+                color: #fff;
+                font-size: 16px;
+                font-family: 'Arial', sans-serif;
+                font-weight: bold;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            /* Efecto hover en los botones */
+            #popup button:hover {
+                background-color: #ff8c00;
+                box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+                transform: translateY(-2px);
+            }
+
+            /* Efecto activo (cuando se pulsa el botón) */
+            #popup button:active {
+                transform: translateY(1px);
+                box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+            }
+
+            /* Opciones individuales para botones */
+            #popup button:nth-child(1) {
+                background-color: #ffa500;
+            }
+
+            #popup button:nth-child(2) {
+                background-color: #000;
+                color: #ffa500;
+                border: 2px solid #ffa500;
+            }
+
+            #popup button:nth-child(3) {
+                background-color: #fff;
+                color: #000;
+                border: 2px solid #000;
+            }
+
+
+            #poprxp {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000;
+    border: 2px solid #ffa500;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+height: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo general para los botones */
+#poprxp button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en los botones */
+#poprxp button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Efecto activo (cuando se pulsa el botón) */
+#poprxp button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+}
+
+/* Opciones individuales para botones */
+#poprxp button:nth-child(1) {
+    background-color: #ffa500;
+}
+
+#poprxp button:nth-child(2) {
+    background-color: #000;
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+#poprxp button:nth-child(3) {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+   /* Estilo para el contenedor del popip */
+   #popip {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000;
+    border: 2px solid #ffa500;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+height: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo general para los botones */
+#popip button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en los botones */
+#popip button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Efecto activo (cuando se pulsa el botón) */
+#popip button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+}
+
+/* Opciones individuales para botones */
+#popip button:nth-child(1) {
+    background-color: #ffa500;
+}
+
+#popip button:nth-child(2) {
+    background-color: #000;
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+#popip button:nth-child(3) {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+
+
+   /* Estilo para el contenedor del popop */
+   #popop {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000;
+    border: 2px solid #ffa500;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+height: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo general para los botones */
+#popop button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en los botones */
+#popop button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Efecto activo (cuando se pulsa el botón) */
+#popop button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+}
+
+/* Opciones individuales para botones */
+#popop button:nth-child(1) {
+    background-color: #ffa500;
+}
+
+#popop button:nth-child(2) {
+    background-color: #000;
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+#popop button:nth-child(3) {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+#popmp {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000;
+    border: 2px solid #ffa500;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+height: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo general para los botones */
+#popmp button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en los botones */
+#popmp button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Efecto activo (cuando se pulsa el botón) */
+#popmp button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+}
+
+/* Opciones individuales para botones */
+#popmp button:nth-child(1) {
+    background-color: #ffa500;
+}
+
+#popmp button:nth-child(2) {
+    background-color: #000;
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+#popmp button:nth-child(3) {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+            #popep {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                background-color: #000;
+                border: 2px solid #ffa500;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+                width: 100%;
+height: 100%;
+                margin: 20px auto;
+            }
+
+            /* Estilo general para los botones */
+            #popep button {
+                background-color: #ffa500;
+                color: #fff;
+                font-size: 16px;
+                font-family: 'Arial', sans-serif;
+                font-weight: bold;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            /* Efecto hover en los botones */
+            #popep button:hover {
+                background-color: #ff8c00;
+                box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+                transform: translateY(-2px);
+            }
+
+            /* Efecto activo (cuando se pulsa el botón) */
+            #popep button:active {
+                transform: translateY(1px);
+                box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+            }
+
+            /* Opciones individuales para botones */
+            #popep button:nth-child(1) {
+                background-color: #ffa500;
+            }
+
+            #popep button:nth-child(2) {
+                background-color: #000;
+                color: #ffa500;
+                border: 2px solid #ffa500;
+            }
+
+            #popep button:nth-child(3) {
+                background-color: #fff;
+                color: #000;
+                border: 2px solid #000;
+            }
+            #popap {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000;
+    border: 2px solid #ffa500;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+height: 100%;
+    margin: 20px auto;
+}
+
+/* Estilo general para los botones */
+#popap button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover en los botones */
+#popap button:hover {
+    background-color: #ff8c00;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Efecto activo (cuando se pulsa el botón) */
+#popap button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255, 140, 0, 0.6);
+}
+
+/* Opciones individuales para botones */
+#popap button:nth-child(1) {
+    background-color: #ffa500;
+}
+
+#popap button:nth-child(2) {
+    background-color: #000;
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+#popap button:nth-child(3) {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+        </style>
+            <script>
+                function selectOption(option) {
+                    const input = document.getElementById('pedidoinput');
+                    input.value += (input.value ? '%0A%0A' : '') + option;
+                }
+            </script>
+        </div>
+        <script>
+            function abrirVentanaDeOpciones() {
+                const opciones = ["Pollo", "Lomito", "Mechada"];
+                const eleccion = prompt(`Selecciona una opción:\n1. ${opciones[0]}\n2. ${opciones[1]}\n3. ${opciones[2]}`);
+                
+                if (eleccion === "1" || eleccion === "2" || eleccion === "3") {
+                    const textoSeleccionado = opciones[parseInt(eleccion) - 1];
+                    const inputPedido = document.getElementById("pedidoinput");
+                    if (inputPedido) {
+                        inputPedido.value += textoSeleccionado + " ";
+                    } else {
+                        console.error("No se encontró un elemento con la ID 'pedidoinput'.");
+                    }
+                } else {
+                    alert("Selección inválida. Por favor, intenta de nuevo.");
+                }
+            }
+        </script>
+    <style>
+        /* Estilos de la ventana modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-green {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-green:hover {
+            background-color: darkgreen;
+        }
+
+        .btn-red {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover {
+            background-color: darkred;
+        }
+    </style>
+<div id="modalNota" class="modal" style="display: none;">
+    <br><br><br>       <br><br><br>       <br><br><br>     
+    <div class="modal-content" style="width: 80%;">
+  
+        <h2>Estamos cerrados hoy, Puedes continuar viendo la carta</h2>
+      <img src="https://www.shutterstock.com/image-illustration/sign-red-color-thata-says-600nw-2478745349.jpg" style="width: 100%;" alt="">
+        <br><br>
+ 
+        <button class="btn-green" onclick="closeModalx()">Continuar viendo la carta</button>
+    </div>
+</div>
+
+    <!-- Ventana Modal -->
+    <div id="modal" class="modal">
+        <br><br><br>       <br><br><br>       <br><br><br>     
+        <div class="modal-content" style="width: 80%;">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>¿Deseas agregarle una nota o especificación?</h2>
+            <input type="text" id="especificaciones" placeholder="Por ejemplo: Sin cebolla">
+            <br><br>
+      <center>
+        <button class="btn-green" onclick="agregarEspecificacion();reproducirAudio();">Listo</button>
+        <button class="btn-red" onclick="closeModal();reproducirAudio();">No, Gracias</button>
+   
+      </center> </div>
+    </div>
+    <br>
+
+    <script>
+        // Función para abrir el modal
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+         // Función para cerrar el modal
+         function closeModalx() {
+            document.getElementById("modalNota").style.display = "none";
+        }
+
+        
+    // Función para agregar la especificación al input de pedido y a otro input
+function agregarEspecificacion() {
+    const especificacionInput = document.getElementById("especificaciones");
+    const pedidoInput = document.getElementById("pedidoinput");
+    const otroInput = document.getElementById("otroinput"); // Nuevo input a actualizar
+
+    if (especificacionInput.value.trim() !== "") {
+        const textoEspecificacion = "%0A _Especificaciones:_ " + especificacionInput.value;
+
+        pedidoInput.value += textoEspecificacion;
+        otroInput.value += textoEspecificacion; // Agrega el texto al otro input también
+    }
+    
+    especificacionInput.value = "";
+    closeModal();
+}
+
+    </script>
+
+    </main>
+<style>
+    /* Contenedor de productos */
+    #productos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body {
+    display: flex;
+
+    min-height: 100vh; /* Altura mínima para ocupar toda la pantalla */
+    margin: 0; /* Eliminamos los márgenes del cuerpo */
+    background-color: #f9f9f9; /* Color de fondo opcional */
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+
+    max-width: 130px; /* Limitar el ancho máximo */
+}
+
+.producto {
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 270px;
+
+    transition: transform 0.3s;
+    border: solid 4px orangered;
+    border-left: 0px;
+    border-right: 0px;
+    width: 100% !important; /* Respeta tu tamaño específico */
+}
+
+
+    .producto:hover {
+        transform: translateY(-5px);
+    }
+
+    .producto img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .producto span {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    .producto button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .producto button:hover {
+        background-color: #ff8c00;
+    }
+</style>
+<br><br>
+
+
+<div id="ventana-magica" style="z-index: 10000000000021301230123; width: 100%; height: 100%; background: black; border-radius: 0px;" class="modal">
+    <div class="modal-content">
+        <center>
+            <div class="logo-container">
+                <img  id="" src="https://i.ibb.co/6cJV7NxN/santiagoburgerlogo.jpg" alt="Logo Santiago Burger">
+                </div>
+                
+            <style>
+                .logo-container {
+    position: relative;
+    display: inline-block;
+    width: 105px;
+    height: 105px;
+    margin-top: 20px;
+}
+
+.logo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, orangered 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.logo-container img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    border-radius: 50%; /* Opcional para que la imagen también sea circular */
+}
+
+            </style>
+        </center>
+        <h2 style="color: orangered;">Información de entrega</h2>
+        <label for="cliente">Nombre del Cliente:</label>
+        <input class="campo" type="text" id="nombre" placeholder="Escribe el nombre del cliente">
+        
+        <label for="ubicacion">Dirección:</label>
+        <input class="campo" type="text" id="direccion" placeholder="Escribe la ubicación">
+
+        <label for="metodo-pago">Método de Pago:</label>
+        <select class="campo" id="metodo-pago">
+            <option value="efectivo">Efectivo</option>
+            <option value="transferencia">Transferencia</option>
+        </select>
+
+        <label for="contacto">Teléfono de Contacto:</label>
+        <input class="campo" type="text" id="telefono" placeholder="Escribe el teléfono de contacto">
+
+        <button style="border: 3px solid orangered; border-radius: 15px;" class="btn" id="submit" onclick="closeModal();enviarPedidoWhatsApp();">Enviar a Whatsapp</button>
+        <button style="background-color: orangered; display: none; border: 3px solid #000; border-radius: 15px;" class="btn" id="volver-a-pedir" onclick="closeModal();location.reload();">Hacer un nuevo Pedido</button>
+    </div>
+</div>
+  
+<style>
+
+    #capa-infinita {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+
+    #ventana-magica {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    #encabezado-impactante {
+        font-size: 1.7em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    #corazon-del-contenido {
+        margin-bottom: 25px;
+        color: #555;
+    }
+
+    .elemento-brillante {
+        margin-bottom: 10px;
+    }
+
+    #zona-botonera {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 15px;
+    }
+
+    .boton-increible {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .boton-llamativo {
+        background-color: #5cb85c;
+        color: white;
+    }
+
+    .boton-llamativo:hover {
+        background-color: #4cae4c;
+    }
+
+    .boton-rojo-alerta {
+        background-color: #d9534f;
+        color: white;
+    }
+
+    .boton-rojo-alerta:hover {
+        background-color: #c9302c;
+    }
+</style>
+
+
+<div hidden>
+    <button id="boton-misterioso" onclick="abrirVentana()">Enviar Pedido</button>
+    <div id="capa-infinita"></div>
+    <div >
+        <div id="encabezado-impactante">Resumen del Pedido</div>
+        <div id="corazon-del-contenido">
+            <p class="elemento-brillante"><strong>Nombre:</strong> <span id="nombre-dinamico"></span></p>
+            <p class="elemento-brillante"><strong>Dirección:</strong> <span id="direccion-dinamica"></span></p>
+            <p class="elemento-brillante"><strong>Forma de Pago:</strong> <span id="pago-dinamico"></span></p>
+            <p class="elemento-brillante"><strong>Total:</strong> $<span id="total-dinamico"></span></p>
+            <p class="elemento-brillante"><strong>Pedido:</strong> <span id="pedido-dinamico"></span></p>
+        </div>
+        <div id="zona-botonera">
+            <button class="boton-increible boton-llamativo" onclick="enviarPedidoWhatsApp()">Confirmar</button>
+            <button class="boton-increible boton-rojo-alerta" onclick="cerrarVentana()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function abrirVentana() {
+        const nombre = document.querySelector("#nombre").value;
+        const direccion = document.querySelector("#direccion").value;
+        const total = document.querySelector("#total").value;
+        const pedido = document.querySelector("#pedidoinput").value;
+        const formadepago = document.querySelector("#metodo-pago").value;
+
+        document.getElementById("nombre-dinamico").textContent = nombre;
+        document.getElementById("direccion-dinamica").textContent = direccion;
+        document.getElementById("pago-dinamico").textContent = formadepago;
+        document.getElementById("total-dinamico").textContent = total;
+        document.getElementById("pedido-dinamico").textContent = pedido;
+
+        document.getElementById("capa-infinita").style.display = 'block';
+        document.getElementById("ventana-magica").style.display = 'block';
+    }
+
+    function cerrarVentana() {
+        document.getElementById("capa-infinita").style.display = 'none';
+        document.getElementById("ventana-magica").style.display = 'none';
+    }
+
+
+</script>
+<script>
+    function enviarPedidoWhatsApp() {
+        document.getElementById("volverapedir").style.display = 'block';
+        document.getElementById("submit").style.display = 'none';
+        document.getElementById("volver-a-pedir").style.display = 'block';
+        event.preventDefault();
+        const nombre = document.querySelector("#nombre").value;
+        const direccion = document.querySelector("#direccion").value;
+        const telefono = document.querySelector("#telefono").value;
+        const total = document.querySelector("#total").value;
+        const pedido = document.querySelector("#pedidoinput").value;
+        const metodopago = document.querySelector("#metodo-pago").value;
+    
+        // URL con el mensaje en WhatsApp
+        const url = `https://api.whatsapp.com/send?phone=56965741467&text=*🍔=STGO BURGER=🍔*%0A 👤${nombre}%0A 🏠${direccion}%0A 💵${metodopago}%0A ---------------- %0A 🛎️== *PEDIDO* == 🛎️ %0A %0A${pedido}%0ATOTAL: $${total}%0A🛎️====FIN====🛎️%0A*Envía Este Mensaje ➡️*`;
+    
+        window.open(url);
+    }
+</script>
+
+    <div id="carritoOverlay" onclick="cerrarCarrito()"></div>
+    <div id="carritoVentana">
+        <h3>Carrito de compras</h3>
+        <ul id="listaCarrito"></ul>
+        <script>
+            function pasarValorAlInput() {
+    // Obtiene el elemento del span y extrae su contenido
+    const valorTotalCarrito = document.getElementById("totalCarrito").textContent;
+
+    // Obtiene el input con id "total"
+    const inputTotal = document.getElementById("total");
+
+    // Asigna el valor extraído al input
+    inputTotal.value = valorTotalCarrito;
+}
+
+        </script>
+        <input type="number" hidden id="total" placeholder="Ingresa el total a pagar" required>
+        <input type="text" id="otroinput" style="color: #fff; background-color: #000; border: 0px;" readonly>
+        <p>Total: $<span id="totalCarrito" style="color: white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</span><br><span style="color: greenyellow;">✅Especificaciones incluidas!</span></p>
+        <br><br><br><br><br>
+        <button onclick="cerrarCarrito()">Cerrar</button>
+        <button style="background-color: rgb(255, 0, 0);" onclick="location.reload();">Rehacer Pedido</button>
+        <button style="background-color: rgb(2, 196, 2) !important;" onclick="abrirVentana();finalizar()">Finalizar Pedido</button>
+      <script>
+        function finalizar(){
+            document.getElementById("carritoVentana").style.display = 'none';
+        }
+      </script>
+    <style>
+     
+        .formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            display: none;
+            z-index: 32984938490238490238490238490 !important;
+        }
+        .formulario h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .formulario .campo {
+            margin-bottom: 15px;
+        }
+        .formulario .campo label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .formulario .campo,
+        .formulario .campo select {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid orangered;
+            border-radius: 5px;
+        }
+
+
+        .campo {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid orangered;
+            border-radius: 5px;
+        }
+        
+
+        .formulario .btn {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid orangered;
+            background-color: #4CAF50;
+            color: #fff;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .formulario .btn:hover {
+            background-color: #45a049;
+            border: 3px solid orangered;
+        }
+    </style>
+</head>
+
+<body >
+    <div id="body">
+        
+    
+    <form class="formulario" onsubmit="enviarPedidoWhatsApp(); return false;">
+        <h2>Formulario de Pedido</h2>
+        <div class="campo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+        <div class="campo">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" placeholder="Ingresa tu dirección" required>
+        </div>
+        <div class="campo">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" placeholder="Ingresa tu teléfono" required>
+        </div>
+        <div class="campo">
+            <label for="total">Total:</label>
+          
+        </div>
+
+
+        <button type="button" class="boton" style="display:none;" id="volverapedir">Hacer un nuevo pedido</button>
+    </form>
+
+      <style>
+            /* Estilos de la ventana modal */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.4);
+            }
+    
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 100%;
+                text-align: left;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+    
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+    
+            .close:hover, .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    
+            label {
+                display: block;
+                margin-top: 10px;
+            }
+    
+            select, input {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+    
+            .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+            }
+    
+            .btn:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </div>
+
+    
+    <script>
+        const carrito = [];
+        let total = 0;
+        let contadorProductos = 0;
+        const pedidoinput = document.getElementById('pedidoinput');
+        let filtroActual = 'todo'; // 'todo', 'nombre' o 'ingredientes'
+
+        function agregarAlCarrito(producto, precio, mensaje) {
+            carrito.push({ nombre: producto, precio: precio });
+            total += precio;
+            contadorProductos++;
+            document.getElementById('contador').textContent = contadorProductos;
+            actualizarCarrito();
+            pedidoinput.value += mensaje + '';
+        }
+
+        function eliminarDelCarrito(index, mensaje) {
+            const productoEliminado = carrito.splice(index, 1)[0];
+            total -= productoEliminado.precio;
+            contadorProductos--;
+            document.getElementById('contador').textContent = contadorProductos;
+            actualizarCarrito();
+            pedidoinput.value = pedidoinput.value.replace(mensaje + ', ', '');
+        }
+
+     
+        function actualizarCarrito() {
+    const listaCarrito = document.getElementById('listaCarrito');
+    const totalCarrito = document.getElementById('totalCarrito');
+    listaCarrito.innerHTML = '';
+    carrito.forEach((producto, index) => {
+        const li = document.createElement('li');
+
+        // Cambiar el fondo del elemento a naranja
+        li.style.backgroundColor = 'orange';
+        li.style.color = 'black'; // Asegura que el texto sea legible
+        li.style.padding = '10px'; // Agrega espacio interno
+        li.style.margin = '5px 0'; // Agrega separación entre elementos
+        li.style.borderRadius = '5px'; // Redondea los bordes para estética
+
+        // Crear un span para el número 1 y darle estilo
+        const spanNumero = document.createElement('span');
+        spanNumero.textContent = '1';
+        spanNumero.style.color = 'white';
+        spanNumero.style.fontFamily = 'impact';
+        spanNumero.style.fontSize = '150%';
+        spanNumero.style.webkitTextStroke = '#000 1px';
+
+        // Crear el texto restante
+        const textoProducto = document.createTextNode(` ${producto.nombre} - $${producto.precio}`);
+
+        // Agregar el número y el texto al elemento li
+        li.appendChild(spanNumero);
+        li.appendChild(textoProducto);
+
+        listaCarrito.appendChild(li);
+    });
+
+    // Actualizar el total mostrado visualmente
+    totalCarrito.textContent = total;
+
+    pasarValorAlInput();
+}
+
+
+
+        function abrirCarrito() {
+            document.getElementById('carritoVentana').style.display = 'block';
+            document.getElementById('carritoOverlay').style.display = 'block';
+            pasarValorAlInput();
+        }
+
+        function cerrarCarrito() {
+            document.getElementById('carritoVentana').style.display = 'none';
+            document.getElementById('carritoOverlay').style.display = 'none';
+        }
+        
+        // Función para cambiar el filtro de búsqueda
+        function cambiarFiltro(tipo) {
+            filtroActual = tipo;
+            
+            // Actualizar botones activos
+            document.querySelectorAll('#filtro-busqueda button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Volver a ejecutar la búsqueda si hay texto en el buscador
+            const textoBusqueda = document.getElementById('buscador').value;
+            if (textoBusqueda) {
+                buscarProductos(textoBusqueda);
+            }
+        }
+        
+        // Función para buscar productos
+        function buscarProductos(texto) {
+            const productos = document.querySelectorAll('.producto');
+            const termino = texto.toLowerCase().trim();
+            
+            productos.forEach(producto => {
+                const nombre = producto.getAttribute('data-nombre').toLowerCase();
+                const ingredientes = producto.getAttribute('data-ingredientes').toLowerCase();
+                let coincide = false;
+                
+                if (termino === '') {
+                    producto.style.display = 'flex';
+                    return;
+                }
+                
+                switch (filtroActual) {
+                    case 'nombre':
+                        coincide = nombre.includes(termino);
+                        break;
+                    case 'ingredientes':
+                        coincide = ingredientes.includes(termino);
+                        break;
+                    case 'todo':
+                    default:
+                        coincide = nombre.includes(termino) || ingredientes.includes(termino);
+                        break;
+                }
+                
+                producto.style.display = coincide ? 'flex' : 'none';
+            });
+        }
+        
+        // Event listener para el buscador
+        document.getElementById('buscador').addEventListener('input', function() {
+            buscarProductos(this.value);
+        });
+        
+        // Inicializar buscador
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asegurarse de que todos los productos son visibles al inicio
+            document.querySelectorAll('.producto').forEach(producto => {
+                producto.style.display = 'flex';
+            });
+        });
+    </script>
+
+<style>
+    /* Estilo general */
+    body {
+        font-family: impact;
+        background-color: #302e2e;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Encabezado */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: orangered;
+        color: white;
+        position: fixed;
+        width: 100%;
+        
+    }
+
+    header img {
+        max-width: 100px;
+        border-radius: 10px;
+    }
+
+    header input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 250px;
+        outline: none;
+    }
+
+    /* Productos */
+    #productos {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+
+    .producto:hover {
+        transform: translateY(-5px);
+    }
+
+    .producto img {
+        width: 120px;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .producto span {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    .producto button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .producto button:hover {
+        background-color: orangered;
+    }
+
+    /* Carrito */
+    #carrito {
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+       position: absolute;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+    }
+
+    #carrito h3 {
+        margin-bottom: 10px;
+    }
+
+    #carrito ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #carrito ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f3f3f3;
+        border-radius: 5px;
+    }
+
+    #carrito ul li button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #D70000;
+        color: white;
+        cursor: pointer;
+    }
+
+    #carrito ul li button:hover {
+        background-color: #A50000;
+    }
+
+    /* Input de Pedido */
+    #pedidoinput {
+        width: calc(100% - 40px);
+        margin: 20px auto;
+        display: block;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        outline: none;
+    }
+</style>
+<style>
+    /* Ventana del carrito */
+    #carritoVentana {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        background-color: black;
+        border: 5px solid orangered;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        z-index: 1000;
+        color: white;
+        z-index: 102332 !important;
+    }
+
+    #carritoVentana h3 {
+        margin-top: 0;
+        font-size: 24px;
+        color: orangered;
+        border-bottom: 2px solid orangered;
+        padding-bottom: 10px;
+    }
+
+    #carritoVentana ul {
+        list-style: none;
+        padding: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        margin: 10px 0;
+    }
+
+    #carritoVentana ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border-radius: 8px;
+    }
+
+    #carritoVentana ul li button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #carritoVentana ul li button:hover {
+        background-color: #ff8c00;
+    }
+
+    #carritoVentana p {
+        font-size: 18px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #carritoVentana button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background-color: orangered;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #carritoVentana button:hover {
+        background-color: #ff8c00;
+    }
+
+    /* Fondo de la ventana */
+    #carritoOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+</style>
+</html>
