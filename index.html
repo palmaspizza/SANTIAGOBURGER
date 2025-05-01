@@ -2220,7 +2220,7 @@ function agregarEspecificacion() {
         const metodopago = document.querySelector("#metodo-pago").value;
     
         // URL con el mensaje en WhatsApp
-        const url = `https://api.whatsapp.com/send?phone=56965741467&text=*🍔=STGO BURGER=🍔*%0A 👤${nombre}%0A 🏠${direccion}%0A 💵${metodopago}%0A 📱${telefono} ---------------- %0A 🛎️== *PEDIDO* == 🛎️ %0A %0A${pedido}%0ATOTAL: $${total}%0A🛎️====FIN====🛎️%0A*Envía Este Mensaje ➡️*`;
+        const url = `https://api.whatsapp.com/send?phone=56965741467&text=*🍔=STGO BURGER=🍔*%0A 👤${nombre}%0A 🏠${direccion}%0A 💵${metodopago}%0A 📱${telefono} %0A---------------- %0A 🛎️== *PEDIDO* == 🛎️ %0A %0A${pedido}%0ATOTAL: $${total}%0A🛎️====FIN====🛎️%0A*Envía Este Mensaje ➡️*`;
     
         window.open(url);
     }
