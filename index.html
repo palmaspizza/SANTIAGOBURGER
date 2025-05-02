@@ -1906,7 +1906,7 @@ height: 100%;
     <div class="modal-content" style=" width: 90%;">
         <h2 id="propina1x">¿Deseas agregar <span style="color: orangered;">PROPINA</span>?</h2>
         <h2 id="propina2x" hidden>Escribe el <span style="color: orangered;">MONTO</span></h2>
-        <input type="number" id="propina" hidden placeholder="$10%">
+        <input type="number" id="propina" hidden oninput="document.getElementById('propinabuttoncontinuar').hidden = false;">
         <br><br>
         <script>
             function sipropina(){
@@ -1914,14 +1914,14 @@ height: 100%;
                 document.getElementById("propina2x").hidden = false;
                 document.getElementById("propina").hidden = false;
                 document.getElementById("propinabuttonsi").hidden = true;
-                document.getElementById("propinabuttoncontinuar").hidden = false;
                 document.getElementById("noty").hidden = true;
+                calcularPorcentaje();
             }
         </script>
   <center>
-    <button id="propinabuttoncontinuar" hidden class="btn-green" onclick="closeModalpropina();">Continuar</button>
+    <button id="propinabuttoncontinuar"  hidden class="btn-green" onclick="closeModalpropina();abrirVentana();">Continuar</button>
     <button id="propinabuttonsi" class="btn-green" onclick="sipropina();">Sí</button>
-    <button class="btn-red" id="noty" onclick="closeModalpropina();">No, Gracias</button>
+    <button class="btn-red" id="noty" onclick="closeModalpropina();abrirVentana();">No, Gracias</button>
 
   </center> </div>
 </div>
@@ -2277,13 +2277,21 @@ function agregarEspecificacion() {
 }
 
         </script>
+     
+        <script>
+        function calcularPorcentaje() {
+            let total = document.getElementById("total").value;
+            let porcentaje = total * 0.1;
+            document.getElementById("propina").placeholder = "10%/TOTAL = " + porcentaje;
+        }
+        </script>
         <input type="number" hidden id="total" placeholder="Ingresa el total a pagar" required>
         <input type="text" id="otroinput" style="color: #fff; background-color: #000; border: 0px;" readonly>
         <p>Total: $<span id="totalCarrito" style="color: white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</span><br><span style="color: greenyellow;">✅Especificaciones incluidas!</span></p>
         <br><br><br><br><br>
         <button onclick="cerrarCarrito()">Cerrar</button>
         <button style="background-color: rgb(255, 0, 0);" onclick="location.reload();">Rehacer Pedido</button>
-        <button style="background-color: rgb(2, 196, 2) !important;" onclick="openModalpropina();cerrarCarrito();finalizar()">Finalizar Pedido</button>
+        <button style="background-color: rgb(2, 196, 2) !important;" onclick="cerrarCarrito();finalizar();openModalpropina();">Finalizar Pedido</button>
       <script>
         function finalizar(){
             document.getElementById("carritoVentana").style.display = 'none';
