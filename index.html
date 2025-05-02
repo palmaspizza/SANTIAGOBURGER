@@ -555,7 +555,7 @@ window.onload = function iniciarAventura() {
                 }
               </style>
                   
-<h1 class="elementor" style="margin-top: 150px; color: white;">⭐🍔Menu SANTIAGO BURGER ESPECIAL🍔⭐</h1>
+<center><h1 class="elementor" style="margin-top: 150px; color: white;">⭐🍔Menu🍔⭐ <br><center> SANTIAGO BURGER ESPECIAL</center></h1></center>
 <section id="menuespecial" class="seccion"></section>
 
 <br><br>
@@ -1900,7 +1900,31 @@ height: 100%;
         <button class="btn-green" onclick="closeModalx()">Continuar viendo la carta</button>
     </div>
 </div>
+ <!-- Ventana Modal -->
+ <div id="modalpropina" style="z-index: 9999999999999999999999;" class="modal">
+    <br><br><br>       <br><br><br>       <br><br><br>     
+    <div class="modal-content" style=" width: 90%;">
+        <h2 id="propina1x">¿Deseas agregar <span style="color: orangered;">PROPINA</span>?</h2>
+        <h2 id="propina2x" hidden>Escribe el <span style="color: orangered;">MONTO</span></h2>
+        <input type="number" id="propina" hidden placeholder="$10%">
+        <br><br>
+        <script>
+            function sipropina(){
+                document.getElementById("propina1x").hidden = true;
+                document.getElementById("propina2x").hidden = false;
+                document.getElementById("propina").hidden = false;
+                document.getElementById("propinabuttonsi").hidden = true;
+                document.getElementById("propinabuttoncontinuar").hidden = false;
+                document.getElementById("noty").hidden = true;
+            }
+        </script>
+  <center>
+    <button id="propinabuttoncontinuar" hidden class="btn-green" onclick="closeModalpropina();">Continuar</button>
+    <button id="propinabuttonsi" class="btn-green" onclick="sipropina();">Sí</button>
+    <button class="btn-red" id="noty" onclick="closeModalpropina();">No, Gracias</button>
 
+  </center> </div>
+</div>
     <!-- Ventana Modal -->
     <div id="modal" class="modal">
         <br><br><br>       <br><br><br>       <br><br><br>     
@@ -1910,14 +1934,23 @@ height: 100%;
             <input type="text" id="especificaciones" placeholder="Por ejemplo: Sin cebolla">
             <br><br>
       <center>
-        <button class="btn-green" onclick="agregarEspecificacion();reproducirAudio();">Listo</button>
-        <button class="btn-red" onclick="closeModal();reproducirAudio();">No, Gracias</button>
+        <button class="btn-green" onclick="agregarEspecificacion();">Listo</button>
+        <button class="btn-red" onclick="closeModal();">No, Gracias</button>
    
       </center> </div>
     </div>
     <br>
 
     <script>
+
+function openModalpropina() {
+            document.getElementById("modalpropina").style.display = "block";
+        }
+
+        // Función para cerrar el modal
+        function closeModalpropina() {
+            document.getElementById("modalpropina").style.display = "none";
+        }
         // Función para abrir el modal
         function openModal() {
             document.getElementById("modal").style.display = "block";
@@ -2219,9 +2252,9 @@ function agregarEspecificacion() {
         const total = document.querySelector("#total").value;
         const pedido = document.querySelector("#pedidoinput").value;
         const metodopago = document.querySelector("#metodo-pago").value;
-    
+        const propina = document.querySelector("#propina").value;
         // URL con el mensaje en WhatsApp
-        const url = `https://api.whatsapp.com/send?phone=56965741467&text=*🍔=STGO BURGER=🍔*%0A 👤${nombre}%0A 🏠${direccion}%0A 💵${metodopago}%0A 📱${telefono} %0A---------------- %0A 🛎️== *PEDIDO* == 🛎️ %0A %0A${pedido}%0ATOTAL: $${total}%0A🛎️====FIN====🛎️%0A*Envía Este Mensaje ➡️*`;
+        const url = `https://api.whatsapp.com/send?phone=56965741467&text=*🍔=STGO BURGER=🍔*%0A 👤${nombre}%0A 🏠${direccion}%0A 💵${metodopago}%0A 📱${telefono} %0A---------------- %0A 🛎️== *PEDIDO* == 🛎️ %0A %0A${pedido}%0ATOTAL: $${total}_PROPINA:_${propina}%0A🛎️====FIN====🛎️%0A*Envía Este Mensaje ➡️*`;
     
         window.open(url);
     }
@@ -2250,7 +2283,7 @@ function agregarEspecificacion() {
         <br><br><br><br><br>
         <button onclick="cerrarCarrito()">Cerrar</button>
         <button style="background-color: rgb(255, 0, 0);" onclick="location.reload();">Rehacer Pedido</button>
-        <button style="background-color: rgb(2, 196, 2) !important;" onclick="abrirVentana();finalizar()">Finalizar Pedido</button>
+        <button style="background-color: rgb(2, 196, 2) !important;" onclick="openModalpropina();cerrarCarrito();finalizar()">Finalizar Pedido</button>
       <script>
         function finalizar(){
             document.getElementById("carritoVentana").style.display = 'none';
